@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { STATS } from "@/lib/constants";
 
 const ITEMS = [
@@ -12,7 +12,7 @@ const ITEMS = [
   { icon:"🚢", label:"Monthly Volume",  value:`${STATS.capacityMT} MT`,   detail:"Consistent Supply"      },
 ];
 
-export default function TrustBar() {
+export default memo(function TrustBar() {
   const [visible, setVisible]  = useState(false);
   const [hovered, setHovered]  = useState<number|null>(null);
   const barRef = useRef<HTMLElement>(null);
@@ -213,4 +213,4 @@ export default function TrustBar() {
       </aside>
     </>
   );
-}
+});

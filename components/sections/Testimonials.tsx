@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { TESTIMONIALS } from "@/lib/constants";
 
-export default function Testimonials() {
+export default memo(function Testimonials() {
   const [visible, setVisible] = useState(false);
   const secRef = useRef<HTMLElement>(null);
 
@@ -171,4 +171,4 @@ export default function Testimonials() {
       </section>
     </>
   );
-}
+});

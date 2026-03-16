@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { STATS } from "@/lib/constants";
 
-export default function Hero() {
+export default memo(function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const [ready, setReady] = useState(false);
 
@@ -469,4 +469,4 @@ export default function Hero() {
       </section>
     </>
   );
-}
+});

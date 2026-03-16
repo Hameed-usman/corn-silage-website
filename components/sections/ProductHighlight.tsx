@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { ArrowRight, FlaskConical, Leaf, Globe, Award } from "lucide-react";
 import { PRODUCT_SPECS } from "@/lib/constants";
 
 /* ─────────────────────────────────────────────────────
    SVG circular progress ring
 ───────────────────────────────────────────────────── */
-function RingProgress({
+const RingProgress = memo(function RingProgress({
   pct,
   size = 52,
   stroke = 3.5,
@@ -64,12 +64,12 @@ function RingProgress({
       />
     </svg>
   );
-}
+});
 
 /* ─────────────────────────────────────────────────────
    Spec card
 ───────────────────────────────────────────────────── */
-function SpecCard({
+const SpecCard = memo(function SpecCard({
   spec,
   index,
   visible,
@@ -205,7 +205,7 @@ function SpecCard({
       </div>
     </div>
   );
-}
+});
 
 /* ─────────────────────────────────────────────────────
    Main component

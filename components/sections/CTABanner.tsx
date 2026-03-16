@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
-export default function CTABanner() {
+export default memo(function CTABanner() {
   const [visible, setVisible] = useState(false);
   const secRef = useRef<HTMLElement>(null);
 
@@ -239,4 +239,4 @@ export default function CTABanner() {
       </section>
     </>
   );
-}
+});

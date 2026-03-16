@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { ArrowRight, ClipboardList, PackageCheck, Ship } from "lucide-react";
 
 const steps = [
@@ -25,7 +25,7 @@ const steps = [
   },
 ];
 
-export default function HowItWorks() {
+export default memo(function HowItWorks() {
   const [visible, setVisible] = useState(false);
   const secRef = useRef<HTMLElement>(null);
 
@@ -249,4 +249,4 @@ export default function HowItWorks() {
       </section>
     </>
   );
-}
+});

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { FlaskConical, Link2, BadgeDollarSign, Clock } from "lucide-react";
 
 const cards = [
@@ -30,7 +30,7 @@ const cards = [
   },
 ];
 
-export default function WhyUs() {
+export default memo(function WhyUs() {
   const [visible, setVisible] = useState(false);
   const secRef = useRef<HTMLElement>(null);
 
@@ -196,4 +196,4 @@ export default function WhyUs() {
       </section>
     </>
   );
-}
+});

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,23 +12,40 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  /* ── Scroll detection ── */
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+  /* ── Scroll detection with useCallback ── */
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 40);
   }, []);
 
-  /* ── Close drawer on outside click ── */
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (drawerRef.current && !drawerRef.current.contains(e.target as Node))
-        setMenuOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  /* ── Toggle menu with useCallback ── */
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(prev => !prev);
   }, []);
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
+
+  /* ── Close drawer on outside click (backdrop) ── */
+  useEffect(() => {
+    if (!menuOpen) return;
+    
+    const handler = (e: MouseEvent) => {
+      // Don't close if clicking on drawer or toggle button
+      if (drawerRef.current?.contains(e.target as Node)) return;
+      closeMenu();
+    };
+    
+    // Use capture phase to intercept backdrop clicks reliably
+    document.addEventListener("mousedown", handler, true);
+    return () => document.removeEventListener("mousedown", handler, true);
+  }, [menuOpen, closeMenu]);
 
   /* ── Prevent body scroll when drawer open ── */
   useEffect(() => {
@@ -38,10 +55,14 @@ export default function Navbar() {
 
   /* ── Escape key closes drawer ── */
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
+    const handler = (e: KeyboardEvent) => { 
+      if (e.key === "Escape" && menuOpen) closeMenu(); 
+    };
+    if (menuOpen) {
+      document.addEventListener("keydown", handler);
+      return () => document.removeEventListener("keydown", handler);
+    }
+  }, [menuOpen, closeMenu]);
 
   return (
     <>
@@ -386,7 +407,7 @@ export default function Navbar() {
               aria-expanded drives the line → X animation. */}
           <button
             className="ham-btn"
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={toggleMenu}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-drawer"
@@ -402,17 +423,16 @@ export default function Navbar() {
       {/* ══════════════════════════════════════════
           MOBILE BACKDROP
       ══════════════════════════════════════════ */}
-      <div
-        aria-hidden="true"
-        onClick={() => setMenuOpen(false)}
-        style={{
-          position:"fixed", inset:0, zIndex:39,
-          background:"rgba(0,0,0,.65)", backdropFilter:"blur(4px)",
-          opacity: menuOpen ? 1 : 0,
-          visibility: menuOpen ? "visible" : "hidden",
-          transition:"opacity .35s ease,visibility .35s ease",
-        }}
-      />
+      {menuOpen && (
+        <div
+          aria-hidden="true"
+          onClick={() => setMenuOpen(false)}
+          style={{
+            position:"fixed", inset:0, zIndex:39,
+            background:"rgba(0,0,0,.65)", backdropFilter:"blur(4px)",
+          }}
+        />
+      )}
 
       {/* ══════════════════════════════════════════
           MOBILE DRAWER
@@ -525,31 +545,28 @@ export default function Navbar() {
             > */}
 
             <button
-  onClick={(e) => {
-    e.stopPropagation();   // prevents document mousedown from firing
-    setMenuOpen(false);
-  }}
-  aria-label="Close navigation menu"
-  style={{
-    width:36,
-    height:36,
-    borderRadius:10,
-    background:"rgba(255,255,255,.07)",
-    border:"1px solid rgba(255,255,255,.11)",
-    display:"flex",
-    alignItems:"center",
-    justifyContent:"center",
-    cursor:"pointer",
-    flexShrink:0,
-    transition:"background .2s ease",
-  }}
-  onMouseEnter={e => {
-    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.14)";
-  }}
-  onMouseLeave={e => {
-    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.07)";
-  }}
->
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close navigation menu"
+              style={{
+                width:36,
+                height:36,
+                borderRadius:10,
+                background:"rgba(255,255,255,.07)",
+                border:"1px solid rgba(255,255,255,.11)",
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                cursor:"pointer",
+                flexShrink:0,
+                transition:"background .2s ease",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.14)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.07)";
+              }}
+            >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
                   d="M2 2L14 14M14 2L2 14"
@@ -582,7 +599,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className="mobile-nav-item"
                 aria-label={`Go to ${link.label}`}
                 style={{
@@ -624,7 +641,7 @@ export default function Navbar() {
           >
             <Link
               href="/contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className="cta-btn"
               aria-label="Request a quote from GreenValley Agri Exports"
               style={{

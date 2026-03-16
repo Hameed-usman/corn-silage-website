@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { ArrowRight } from "lucide-react";
 import { COUNTRIES_SERVED, STATS } from "@/lib/constants";
 
-export default function CountriesServed() {
+export default memo(function CountriesServed() {
   const [visible, setVisible] = useState(false);
   const secRef = useRef<HTMLElement>(null);
 
@@ -213,4 +213,4 @@ export default function CountriesServed() {
       </section>
     </>
   );
-}
+});
