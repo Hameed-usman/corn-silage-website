@@ -1,0 +1,10 @@
+{"sessionId":"8aa062","runId":"pre-fix","hypothesisId":"H1","location":"app/page.tsx:5","message":"Rendering Home component","data":{"divType":"function"},"timestamp":1773572260598}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H1","location":"app/page.tsx:5","message":"Rendering Home component after fix","data":{"note":"home_ok"},"timestamp":1773572394776}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H1","location":"app/page.tsx:5","message":"Rendering Home component after fix","data":{"note":"home_ok"},"timestamp":1773572543631}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H2","location":"components/ui/ScrollReveal.tsx:7","message":"ScrollReveal mounted","data":{"note":"scroll_reveal_ok"},"timestamp":1773572544941}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H2","location":"components/ui/ScrollReveal.tsx:7","message":"ScrollReveal mounted","data":{"note":"scroll_reveal_ok"},"timestamp":1773572557260}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H2","location":"components/ui/ScrollReveal.tsx:7","message":"ScrollReveal mounted","data":{"note":"scroll_reveal_ok"},"timestamp":1773572576441}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H1","location":"app/page.tsx:5","message":"Rendering Home component after fix","data":{"note":"home_ok"},"timestamp":1773572684415}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H1","location":"app/page.tsx:5","message":"Rendering Home component after fix","data":{"note":"home_ok"},"timestamp":1773572723886}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H2","location":"components/ui/ScrollReveal.tsx:7","message":"ScrollReveal mounted","data":{"note":"scroll_reveal_ok"},"timestamp":1773572725473}
+{"sessionId":"8aa062","runId":"post-fix","hypothesisId":"H2","location":"components/ui/ScrollReveal.tsx:7","message":"ScrollReveal mounted","data":{"note":"scroll_reveal_ok"},"timestamp":1773572731238}
