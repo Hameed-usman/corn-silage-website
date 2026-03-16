@@ -11,6 +11,7 @@ export default function Navbar() {
   const [menuOpen,   setMenuOpen]   = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const hamBtnRef = useRef<HTMLButtonElement>(null);
 
   /* ── Scroll detection with useCallback ── */
   const handleScroll = useCallback(() => {
@@ -38,7 +39,7 @@ export default function Navbar() {
     
     const handler = (e: MouseEvent) => {
       // Don't close if clicking on drawer or toggle button
-      if (drawerRef.current?.contains(e.target as Node)) return;
+      if (drawerRef.current?.contains(e.target as Node) || hamBtnRef.current?.contains(e.target as Node)) return;
       closeMenu();
     };
     
@@ -74,12 +75,6 @@ export default function Navbar() {
       ───────────────────────────────────────────── */}
       <style>{`
         /* Keyframes */
-        @keyframes grain-drift {
-          0%,100% { transform:translate(0,0); }
-          25%     { transform:translate(-1%,1%); }
-          50%     { transform:translate(1%,-1%); }
-          75%     { transform:translate(-.5%,.5%); }
-        }
         @keyframes drawer-in {
           from { transform:translateX(100%) skewX(-2deg); opacity:0; }
           to   { transform:translateX(0) skewX(0deg); opacity:1; }
@@ -142,7 +137,6 @@ export default function Navbar() {
           position:absolute; inset:-50%; width:200%; height:200%;
           background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
           opacity:.4; pointer-events:none;
-          animation:grain-drift 8s steps(2) infinite;
         }
 
         /* Scrolled gold border */
@@ -406,6 +400,7 @@ export default function Navbar() {
               NO inline display style — CSS media query controls visibility.
               aria-expanded drives the line → X animation. */}
           <button
+            ref={hamBtnRef}
             className="ham-btn"
             onClick={toggleMenu}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}

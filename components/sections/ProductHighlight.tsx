@@ -253,14 +253,9 @@ export default function ProductHighlight() {
           40%     { transform:translateY(-14px) rotate(1.5deg); }
           70%     { transform:translateY(-7px) rotate(-1deg); }
         }
-        @keyframes ph-grain {
-          0%,100% { transform:translate(0,0); }
-          20%     { transform:translate(-1%,1%); }
-          60%     { transform:translate(1%,-1%); }
-        }
         @keyframes ph-scan {
-          from { top:-2px; }
-          to   { top:100%; }
+          from { transform: translateY(-10px); }
+          to   { transform: translateY(800px); }
         }
         @keyframes ph-dot-pulse {
           0%,100% { opacity:1; transform:scale(1); }
@@ -301,7 +296,6 @@ export default function ProductHighlight() {
           position:absolute; inset:-50%; width:200%; height:200%;
           background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
           opacity:.6; pointer-events:none;
-          animation:ph-grain 10s steps(3) infinite;
         }
 
         /* Spec card shimmer handled inline */
@@ -540,7 +534,7 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", left:0, right:0, height:1,
+                    position:"absolute", left:0, right:0, height:1, top:0,
                     background:"linear-gradient(90deg,transparent,rgba(200,151,58,0.3),transparent)",
                     animation:"ph-scan 6s linear infinite",
                     pointerEvents:"none",
