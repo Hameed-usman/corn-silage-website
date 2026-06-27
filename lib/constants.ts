@@ -7,6 +7,7 @@ export const SITE = {
   name: "GreenValley Agri Exports",
   shortName: "GreenValley",
   tagline: "Premium Corn Silage from Pakistan",
+  description: "GreenValley Agri Exports is a premium corn silage supplier from Pakistan, delivering lab-tested quality and full traceability to global buyers.",
   url: "https://greenvalley-agri.pk",
   founded: 2016,
   logo: "/images/logo.svg",
