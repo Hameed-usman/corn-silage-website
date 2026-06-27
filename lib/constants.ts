@@ -4,61 +4,57 @@
 // ─────────────────────────────────────────────────────────────
 
 export const SITE = {
-  name:        "GreenValley Agri Exports",
-  shortName:   "GreenValley",
-  tagline:     "Premium Corn Silage from Pakistan",
-  description: "Pakistan's leading exporter of premium quality corn silage. ISO 22000 certified, supplying high-energy livestock feed to 15+ countries worldwide.",
-  url:         "https://greenvalley-agri.pk",
-  founded:     2016,
-  logo:        "/images/logo.svg",
-  ogImage:     "/images/og-image.jpg",
+  name: "GreenValley Agri Exports",
+  shortName: "GreenValley",
+  tagline: "Premium Corn Silage from Pakistan",
+  url: "https://greenvalley-agri.pk",
+  founded: 2016,
+  logo: "/images/logo.svg",
+  ogImage: "/images/og-image.jpg",
 } as const;
 
 export const CONTACT = {
-  phone:       "+92 300 123 4567",
-  phoneRaw:    "+923001234567",
-  email:       "exports@greenvalley.pk",
-  whatsapp:    "https://wa.me/923001234567",
+  phone: "+92 300 123 4567",
+  phoneRaw: "+923001234567",
+  email: "exports@greenvalley.pk",
+  whatsapp: "https://wa.me/923001234567",
   address: {
-    street:   "Plot 14, Industrial Zone",
-    city:     "Faisalabad",
+    street: "Plot 14, Industrial Zone",
+    city: "Faisalabad",
     province: "Punjab",
-    country:  "Pakistan",
-    full:     "Plot 14, Industrial Zone, Faisalabad, Punjab, Pakistan",
+    country: "Pakistan",
+    full: "Plot 14, Industrial Zone, Faisalabad, Punjab, Pakistan",
   },
 } as const;
 
 export const STATS = {
-  countries:      "15+",
-  buyers:         "40+",
-  capacityMT:     "500+",
-  onTimeRate:     "98.4%",
-  yearsActive:    "8+",
+  countries: "15+",
+  buyers: "40+",
+  capacityMT: "500+",
+  onTimeRate: "98.4%",
+  yearsActive: "8+",
   exportingSince: 2016,
 } as const;
 
 export const NAV_LINKS = [
-  { label: "About",          href: "/about"          },
-  { label: "Product",        href: "/product"        },
-  { label: "Export Process", href: "/export-process" },
-  { label: "Countries",      href: "/countries"      },
-  { label: "Certificates",   href: "/certificates"   },
-  { label: "Insights",       href: "/blog"           },
+  { label: "About", href: "/about" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Contact", href: "/contact" },
+
 ] as const;
 
 export const CERTIFICATIONS = [
-  { name: "ISO 22000:2018",  short: "ISO 22000", icon: "🏆" },
-  { name: "Halal Certified", short: "Halal",     icon: "🌿" },
-  { name: "PSQCA Approved",  short: "PSQCA",     icon: "✅" },
+  { name: "Halal Certified", short: "Halal", icon: "🌿" },
+  { name: "PSQCA Approved", short: "PSQCA", icon: "✅" },
 ] as const;
 
 export const PRODUCT_SPECS = [
-  { label: "Moisture Content",     value: "65–70",  unit: "%",     pct: 68 },
-  { label: "Crude Protein",        value: "8.5",    unit: "%",     pct: 55 },
-  { label: "Metabolisable Energy", value: "10.2",   unit: "MJ/kg", pct: 78 },
-  { label: "Fermentation pH",      value: "3.8",    unit: "",      pct: 38 },
-  { label: "Dry Matter",           value: "38",     unit: "%",     pct: 38 },
-  { label: "NDF Fibre",            value: "42",     unit: "%",     pct: 42 },
+  { label: "Moisture Content", value: "65–70", unit: "%", pct: 68 },
+  { label: "Crude Protein", value: "8.5", unit: "%", pct: 55 },
+  { label: "Metabolisable Energy", value: "10.2", unit: "MJ/kg", pct: 78 },
+  { label: "Fermentation pH", value: "3.8", unit: "", pct: 38 },
+  { label: "Dry Matter", value: "38", unit: "%", pct: 38 },
+  { label: "NDF Fibre", value: "42", unit: "%", pct: 42 },
 ] as const;
 
 export const WHY_US = [
@@ -107,60 +103,51 @@ export const HOW_IT_WORKS = [
 
 export const COUNTRIES_SERVED = [
   { name: "Saudi Arabia", flag: "🇸🇦", region: "Middle East" },
-  { name: "UAE",          flag: "🇦🇪", region: "Middle East" },
-  { name: "Qatar",        flag: "🇶🇦", region: "Middle East" },
-  { name: "Kuwait",       flag: "🇰🇼", region: "Middle East" },
-  { name: "Germany",      flag: "🇩🇪", region: "Europe"      },
-  { name: "Netherlands",  flag: "🇳🇱", region: "Europe"      },
-  { name: "China",        flag: "🇨🇳", region: "East Asia"   },
-  { name: "Bangladesh",   flag: "🇧🇩", region: "South Asia"  },
-  { name: "Malaysia",     flag: "🇲🇾", region: "SE Asia"     },
-  { name: "Oman",         flag: "🇴🇲", region: "Middle East" },
+  { name: "UAE", flag: "🇦🇪", region: "Middle East" },
+  { name: "Qatar", flag: "🇶🇦", region: "Middle East" },
+  { name: "Kuwait", flag: "🇰🇼", region: "Middle East" },
+  { name: "Germany", flag: "🇩🇪", region: "Europe" },
+  { name: "Netherlands", flag: "🇳🇱", region: "Europe" },
+  { name: "China", flag: "🇨🇳", region: "East Asia" },
+  { name: "Bangladesh", flag: "🇧🇩", region: "South Asia" },
+  { name: "Malaysia", flag: "🇲🇾", region: "SE Asia" },
+  { name: "Oman", flag: "🇴🇲", region: "Middle East" },
 ] as const;
 
 export const TESTIMONIALS = [
   {
-    quote:   "GreenValley consistently delivers the most reliable nutritional profile we've seen from any Asian supplier. Our dairy herd productivity improved 12% in the first quarter after switching.",
-    name:    "Ahmad Al-Rashidi",
-    role:    "Head of Procurement",
+    quote: "GreenValley consistently delivers the most reliable nutritional profile we've seen from any Asian supplier. Our dairy herd productivity improved 12% in the first quarter after switching.",
+    name: "Ahmad Al-Rashidi",
+    role: "Head of Procurement",
     company: "Al Rawabi Dairy Co.",
     country: "Saudi Arabia",
-    flag:    "🇸🇦",
-    rating:  5,
+    flag: "🇸🇦",
+    rating: 5,
   },
   {
-    quote:   "Every shipment arrives with a complete COA, phytosanitary certificate, and moisture report. For EU import compliance, this level of paperwork discipline is genuinely rare.",
-    name:    "Klaus Müller",
-    role:    "Livestock Feed Importer",
+    quote: "Every shipment arrives with a complete COA, phytosanitary certificate, and moisture report. For EU import compliance, this level of paperwork discipline is genuinely rare.",
+    name: "Klaus Müller",
+    role: "Livestock Feed Importer",
     company: "MüllerAg GmbH",
     country: "Germany",
-    flag:    "🇩🇪",
-    rating:  5,
+    flag: "🇩🇪",
+    rating: 5,
   },
   {
-    quote:   "Competitive pricing, transparent communication, and zero delays across 3 years. Their team responds within hours — rare to find this service quality in commodity exports.",
-    name:    "Wang Jianhua",
-    role:    "Import Director",
+    quote: "Competitive pricing, transparent communication, and zero delays across 3 years. Their team responds within hours — rare to find this service quality in commodity exports.",
+    name: "Wang Jianhua",
+    role: "Import Director",
     company: "Xinhua Agri Trading Ltd.",
     country: "China",
-    flag:    "🇨🇳",
-    rating:  5,
+    flag: "🇨🇳",
+    rating: 5,
   },
 ] as const;
 
 export const FOOTER_QUICK_LINKS = [
-  { label: "Home",           href: "/"               },
-  { label: "About Us",       href: "/about"          },
-  { label: "Our Product",    href: "/product"        },
-  { label: "Export Process", href: "/export-process" },
-  { label: "Certificates",   href: "/certificates"   },
-  { label: "Blog & Insights",href: "/blog"           },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
-export const FOOTER_MARKETS = [
-  { label: "Middle East", href: "/countries#middle-east" },
-  { label: "Europe",      href: "/countries#europe"      },
-  { label: "East Asia",   href: "/countries#east-asia"   },
-  { label: "South Asia",  href: "/countries#south-asia"  },
-  { label: "All Markets", href: "/countries"             },
-] as const;

@@ -18,12 +18,12 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
+      {/* <TrustBar /> */}
       <ProductHighlight />
       <WhyUs />
       <HowItWorks />
-      <CountriesServed />
-      <Testimonials />
+      {/* <CountriesServed /> */}
+      {/* <Testimonials /> */}
       <CTABanner />
     </>
   );

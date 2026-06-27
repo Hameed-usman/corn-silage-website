@@ -56,9 +56,9 @@ const RingProgress = memo(function RingProgress({
         style={
           animate
             ? {
-                transition: `stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1)`,
-                strokeDashoffset: offset,
-              }
+              transition: `stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1)`,
+              strokeDashoffset: offset,
+            }
             : {}
         }
       />
@@ -226,9 +226,9 @@ export default function ProductHighlight() {
   }, []);
 
   const badges = [
-    { icon: <Award size={13} aria-hidden="true" />, label: "ISO 22000:2018" },
-    { icon: <Leaf size={13} aria-hidden="true" />, label: "Halal Certified" },
-    { icon: <Globe size={13} aria-hidden="true" />, label: "15+ Countries" },
+    // { icon: <Award size={13} aria-hidden="true" />, label: "ISO 22000:2018" },
+    { icon: <Leaf size={13} aria-hidden="true" />, label: "Halal Verified" },
+    { icon: <Globe size={13} aria-hidden="true" />, label: "Incoporation Certified" },
     { icon: <FlaskConical size={13} aria-hidden="true" />, label: "Lab Tested" },
   ];
 
@@ -353,7 +353,7 @@ export default function ProductHighlight() {
         }}
       >
         {/* ── Background textures ── */}
-        <div aria-hidden="true" style={{ position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div className="ph-grain-layer" />
         </div>
 
@@ -361,12 +361,12 @@ export default function ProductHighlight() {
         <div
           aria-hidden="true"
           style={{
-            position:"absolute", inset:0, pointerEvents:"none",
-            backgroundImage:`
+            position: "absolute", inset: 0, pointerEvents: "none",
+            backgroundImage: `
               linear-gradient(rgba(26,77,46,0.035) 1px, transparent 1px),
               linear-gradient(90deg, rgba(26,77,46,0.035) 1px, transparent 1px)
             `,
-            backgroundSize:"56px 56px",
+            backgroundSize: "56px 56px",
           }}
         />
 
@@ -374,50 +374,50 @@ export default function ProductHighlight() {
         <div
           aria-hidden="true"
           style={{
-            position:"absolute",
-            right:-240, top:"50%",
-            transform:"translateY(-50%)",
-            width:600, height:600,
-            borderRadius:"50%",
-            border:"1px solid rgba(26,77,46,0.07)",
-            pointerEvents:"none",
+            position: "absolute",
+            right: -240, top: "50%",
+            transform: "translateY(-50%)",
+            width: 600, height: 600,
+            borderRadius: "50%",
+            border: "1px solid rgba(26,77,46,0.07)",
+            pointerEvents: "none",
           }}
         />
         <div
           aria-hidden="true"
           style={{
-            position:"absolute",
-            right:-360, top:"50%",
-            transform:"translateY(-50%)",
-            width:860, height:860,
-            borderRadius:"50%",
-            border:"1px solid rgba(26,77,46,0.04)",
-            pointerEvents:"none",
+            position: "absolute",
+            right: -360, top: "50%",
+            transform: "translateY(-50%)",
+            width: 860, height: 860,
+            borderRadius: "50%",
+            border: "1px solid rgba(26,77,46,0.04)",
+            pointerEvents: "none",
           }}
         />
 
         <div
           className="container"
-          style={{ position:"relative", zIndex:1 }}
+          style={{ position: "relative", zIndex: 1 }}
         >
           {/* ══════════════════════════════════════════
               SECTION HEADER
           ══════════════════════════════════════════ */}
-          <div style={{ marginBottom:"clamp(44px,7vh,72px)" }}>
+          <div style={{ marginBottom: "clamp(44px,7vh,72px)" }}>
             <div className="ph-heading">
               {/* Tag */}
-              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:14 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
                 <span
                   style={{
-                    display:"inline-block", width:28, height:2,
-                    background:"#C8973A", borderRadius:2, flexShrink:0,
+                    display: "inline-block", width: 28, height: 2,
+                    background: "#C8973A", borderRadius: 2, flexShrink: 0,
                   }}
                   aria-hidden="true"
                 />
                 <span
                   style={{
-                    fontSize:10.5, fontWeight:700, textTransform:"uppercase",
-                    letterSpacing:"0.16em", color:"#2D7A4F",
+                    fontSize: 10.5, fontWeight: 700, textTransform: "uppercase",
+                    letterSpacing: "0.16em", color: "#2D7A4F",
                   }}
                 >
                   Our Product
@@ -429,22 +429,22 @@ export default function ProductHighlight() {
                 id="product-heading"
                 itemProp="name"
                 style={{
-                  fontFamily:"var(--font-display)",
-                  fontSize:"clamp(34px,4.2vw,58px)",
-                  fontWeight:700,
-                  lineHeight:1.05,
-                  letterSpacing:"-0.025em",
-                  color:"#1C1C1E",
-                  maxWidth:560,
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(34px,4.2vw,58px)",
+                  fontWeight: 700,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  color: "#1C1C1E",
+                  maxWidth: 560,
                 }}
               >
                 Nutritionally Dense{" "}
-                <span style={{ position:"relative", display:"inline-block" }}>
-                  <span style={{ color:"#1A4D2E" }}>Corn Silage</span>
+                <span style={{ position: "relative", display: "inline-block" }}>
+                  <span style={{ color: "#1A4D2E" }}>Corn Silage</span>
                   {/* Underline */}
                   <svg
                     aria-hidden="true"
-                    style={{ position:"absolute", bottom:-4, left:0, width:"100%", height:8 }}
+                    style={{ position: "absolute", bottom: -4, left: 0, width: "100%", height: 8 }}
                     viewBox="0 0 220 8"
                     preserveAspectRatio="none"
                     fill="none"
@@ -465,17 +465,17 @@ export default function ProductHighlight() {
               className="ph-sub"
               itemProp="description"
               style={{
-                fontSize:"clamp(15px,1.7vw,17.5px)",
-                color:"#6B7280",
-                lineHeight:1.76,
-                fontWeight:300,
-                maxWidth:520,
-                marginTop:18,
+                fontSize: "clamp(15px,1.7vw,17.5px)",
+                color: "#6B7280",
+                lineHeight: 1.76,
+                fontWeight: 300,
+                maxWidth: 520,
+                marginTop: 18,
               }}
             >
               Every bale fermented to optimal pH, tested for protein and energy content,
               then vacuum-sealed for international shipping —{" "}
-              <strong style={{ fontWeight:600, color:"#4B5563" }}>quality from farm to feedlot</strong>.
+              <strong style={{ fontWeight: 600, color: "#4B5563" }}>quality from farm to feedlot</strong>.
             </p>
           </div>
 
@@ -484,26 +484,26 @@ export default function ProductHighlight() {
           ══════════════════════════════════════════ */}
           <div
             style={{
-              display:"grid",
-              gridTemplateColumns:"1fr",
-              gap:"clamp(32px,5vw,72px)",
-              alignItems:"start",
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: "clamp(32px,5vw,72px)",
+              alignItems: "start",
             }}
             className="lg:!grid-cols-[1fr_1fr]"
           >
             {/* ── LEFT COLUMN — specimen panel ── */}
-            <div className="ph-visual" style={{ position:"relative" }}>
+            <div className="ph-visual" style={{ position: "relative" }}>
 
               {/* Main dark panel */}
               <div
                 style={{
-                  borderRadius:28,
-                  overflow:"hidden",
-                  background:"linear-gradient(145deg, #0f2e1a 0%, #1A4D2E 50%, #0b2116 100%)",
-                  aspectRatio:"4/3",
-                  position:"relative",
-                  boxShadow:"0 24px 80px rgba(15,46,26,0.35), 0 4px 0 rgba(200,151,58,0.2)",
-                  border:"1px solid rgba(200,151,58,0.15)",
+                  borderRadius: 28,
+                  overflow: "hidden",
+                  background: "linear-gradient(145deg, #0f2e1a 0%, #1A4D2E 50%, #0b2116 100%)",
+                  aspectRatio: "4/3",
+                  position: "relative",
+                  boxShadow: "0 24px 80px rgba(15,46,26,0.35), 0 4px 0 rgba(200,151,58,0.2)",
+                  border: "1px solid rgba(200,151,58,0.15)",
                 }}
                 role="img"
                 aria-label="GreenValley premium corn silage product specimen display"
@@ -512,12 +512,12 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", inset:0,
-                    backgroundImage:`
+                    position: "absolute", inset: 0,
+                    backgroundImage: `
                       linear-gradient(rgba(200,151,58,0.04) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(200,151,58,0.04) 1px, transparent 1px)
                     `,
-                    backgroundSize:"36px 36px",
+                    backgroundSize: "36px 36px",
                   }}
                 />
 
@@ -525,8 +525,8 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", inset:0,
-                    background:"radial-gradient(ellipse 70% 60% at 45% 45%, rgba(200,151,58,0.1) 0%, transparent 65%)",
+                    position: "absolute", inset: 0,
+                    background: "radial-gradient(ellipse 70% 60% at 45% 45%, rgba(200,151,58,0.1) 0%, transparent 65%)",
                   }}
                 />
 
@@ -534,28 +534,28 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", left:0, right:0, height:1, top:0,
-                    background:"linear-gradient(90deg,transparent,rgba(200,151,58,0.3),transparent)",
-                    animation:"ph-scan 6s linear infinite",
-                    pointerEvents:"none",
+                    position: "absolute", left: 0, right: 0, height: 1, top: 0,
+                    background: "linear-gradient(90deg,transparent,rgba(200,151,58,0.3),transparent)",
+                    animation: "ph-scan 6s linear infinite",
+                    pointerEvents: "none",
                   }}
                 />
 
                 {/* Corner brackets */}
                 {[
-                  { top:14, left:14, rotate:0 },
-                  { top:14, right:14, rotate:90 },
-                  { bottom:14, right:14, rotate:180 },
-                  { bottom:14, left:14, rotate:270 },
+                  { top: 14, left: 14, rotate: 0 },
+                  { top: 14, right: 14, rotate: 90 },
+                  { bottom: 14, right: 14, rotate: 180 },
+                  { bottom: 14, left: 14, rotate: 270 },
                 ].map((pos, i) => (
                   <div
                     key={i}
                     aria-hidden="true"
-                    style={{ position:"absolute", ...pos as any }}
+                    style={{ position: "absolute", ...pos as any }}
                   >
                     <svg
                       width="20" height="20" viewBox="0 0 20 20" fill="none"
-                      style={{ transform:`rotate(${pos.rotate}deg)` }}
+                      style={{ transform: `rotate(${pos.rotate}deg)` }}
                     >
                       <path
                         d="M0 16V0H16"
@@ -570,17 +570,17 @@ export default function ProductHighlight() {
                 {/* Central product emoji */}
                 <div
                   style={{
-                    position:"absolute", inset:0,
-                    display:"flex", alignItems:"center", justifyContent:"center",
+                    position: "absolute", inset: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
                   }}
                 >
                   <div
                     style={{
-                      fontSize:"clamp(72px,9vw,108px)",
-                      animation:"ph-float 7s ease-in-out infinite",
-                      filter:"drop-shadow(0 16px 40px rgba(0,0,0,0.5)) drop-shadow(0 0 40px rgba(200,151,58,0.15))",
-                      lineHeight:1,
-                      userSelect:"none",
+                      fontSize: "clamp(72px,9vw,108px)",
+                      animation: "ph-float 7s ease-in-out infinite",
+                      filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.5)) drop-shadow(0 0 40px rgba(200,151,58,0.15))",
+                      lineHeight: 1,
+                      userSelect: "none",
                     }}
                     aria-hidden="true"
                   >
@@ -593,33 +593,33 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", left:28, top:"38%",
-                    display:"flex", alignItems:"center", gap:0,
+                    position: "absolute", left: 28, top: "38%",
+                    display: "flex", alignItems: "center", gap: 0,
                   }}
                 >
                   <div
                     className="ph-anno-line"
                     style={{
-                      width:40, height:1,
-                      background:"rgba(200,151,58,0.45)",
-                      animationDelay:".7s",
+                      width: 40, height: 1,
+                      background: "rgba(200,151,58,0.45)",
+                      animationDelay: ".7s",
                     }}
                   />
                   <div
                     style={{
-                      padding:"4px 8px",
-                      borderRadius:6,
-                      background:"rgba(200,151,58,0.12)",
-                      border:"1px solid rgba(200,151,58,0.25)",
-                      marginLeft:6,
-                      opacity:0,
+                      padding: "4px 8px",
+                      borderRadius: 6,
+                      background: "rgba(200,151,58,0.12)",
+                      border: "1px solid rgba(200,151,58,0.25)",
+                      marginLeft: 6,
+                      opacity: 0,
                       animation: visible ? "ph-rise .5s ease .9s forwards" : "none",
                     }}
                   >
-                    <div style={{ fontSize:8.5, fontWeight:700, color:"#C8973A", letterSpacing:"0.1em", textTransform:"uppercase" }}>
+                    <div style={{ fontSize: 8.5, fontWeight: 700, color: "#C8973A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                       pH Optimised
                     </div>
-                    <div style={{ fontSize:9, color:"rgba(255,255,255,0.4)", marginTop:1 }}>
+                    <div style={{ fontSize: 9, color: "rgba(255,255,255,0.4)", marginTop: 1 }}>
                       4.0 – 4.5
                     </div>
                   </div>
@@ -629,36 +629,36 @@ export default function ProductHighlight() {
                 <div
                   aria-hidden="true"
                   style={{
-                    position:"absolute", right:28, bottom:"35%",
-                    display:"flex", alignItems:"center", gap:0,
-                    flexDirection:"row-reverse",
+                    position: "absolute", right: 28, bottom: "35%",
+                    display: "flex", alignItems: "center", gap: 0,
+                    flexDirection: "row-reverse",
                   }}
                 >
                   <div
                     className="ph-anno-line"
                     style={{
-                      width:36, height:1,
-                      background:"rgba(200,151,58,0.35)",
-                      animationDelay:".85s",
-                      transformOrigin:"right",
+                      width: 36, height: 1,
+                      background: "rgba(200,151,58,0.35)",
+                      animationDelay: ".85s",
+                      transformOrigin: "right",
                     }}
                   />
                   <div
                     style={{
-                      padding:"4px 8px",
-                      borderRadius:6,
-                      background:"rgba(45,122,79,0.15)",
-                      border:"1px solid rgba(45,122,79,0.3)",
-                      marginRight:6,
-                      textAlign:"right",
-                      opacity:0,
+                      padding: "4px 8px",
+                      borderRadius: 6,
+                      background: "rgba(45,122,79,0.15)",
+                      border: "1px solid rgba(45,122,79,0.3)",
+                      marginRight: 6,
+                      textAlign: "right",
+                      opacity: 0,
                       animation: visible ? "ph-rise .5s ease 1.05s forwards" : "none",
                     }}
                   >
-                    <div style={{ fontSize:8.5, fontWeight:700, color:"#3a9362", letterSpacing:"0.1em", textTransform:"uppercase" }}>
+                    <div style={{ fontSize: 8.5, fontWeight: 700, color: "#3a9362", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                       Vacuum Sealed
                     </div>
-                    <div style={{ fontSize:9, color:"rgba(255,255,255,0.4)", marginTop:1 }}>
+                    <div style={{ fontSize: 9, color: "rgba(255,255,255,0.4)", marginTop: 1 }}>
                       Intl. Grade
                     </div>
                   </div>
@@ -667,28 +667,28 @@ export default function ProductHighlight() {
                 {/* Grade badge — bottom right overlap */}
                 <div
                   style={{
-                    position:"absolute",
-                    bottom:-1, right:-1,
-                    borderRadius:"28px 0 28px 0",
-                    background:"linear-gradient(135deg, #C8973A 0%, #e8b84b 100%)",
-                    padding:"14px 22px",
-                    boxShadow:"0 -4px 24px rgba(200,151,58,0.35)",
+                    position: "absolute",
+                    bottom: -1, right: -1,
+                    borderRadius: "28px 0 28px 0",
+                    background: "linear-gradient(135deg, #C8973A 0%, #e8b84b 100%)",
+                    padding: "14px 22px",
+                    boxShadow: "0 -4px 24px rgba(200,151,58,0.35)",
                   }}
                   itemProp="additionalProperty"
                   aria-label="Product quality grade: A+"
                 >
                   <div
                     style={{
-                      fontFamily:"var(--font-display)",
-                      fontSize:34,
-                      fontWeight:700,
-                      color:"#0b2116",
-                      lineHeight:1,
+                      fontFamily: "var(--font-display)",
+                      fontSize: 34,
+                      fontWeight: 700,
+                      color: "#0b2116",
+                      lineHeight: 1,
                     }}
                   >
                     A+
                   </div>
-                  <div style={{ fontSize:9, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.12em", color:"rgba(11,33,22,0.65)", marginTop:3 }}>
+                  <div style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(11,33,22,0.65)", marginTop: 3 }}>
                     Quality Grade
                   </div>
                 </div>
@@ -697,27 +697,27 @@ export default function ProductHighlight() {
               {/* ── Origin badge (floating outside panel) ── */}
               <div
                 style={{
-                  position:"absolute",
-                  top:-18, left:-14,
-                  borderRadius:14,
-                  background:"white",
-                  border:"1px solid rgba(26,77,46,0.1)",
-                  boxShadow:"0 6px 24px rgba(26,77,46,0.12)",
-                  padding:"10px 14px",
-                  display:"flex",
-                  alignItems:"center",
-                  gap:8,
-                  opacity:0,
+                  position: "absolute",
+                  top: -18, left: -14,
+                  borderRadius: 14,
+                  background: "white",
+                  border: "1px solid rgba(26,77,46,0.1)",
+                  boxShadow: "0 6px 24px rgba(26,77,46,0.12)",
+                  padding: "10px 14px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  opacity: 0,
                   animation: visible ? "ph-rise .55s ease .4s forwards" : "none",
                 }}
                 aria-label="Product origin: Pakistan"
               >
-                <span style={{ fontSize:20, lineHeight:1 }} aria-hidden="true">🇵🇰</span>
+                <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">🇵🇰</span>
                 <div>
-                  <div style={{ fontSize:9, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.12em", color:"#9ca3af" }}>
+                  <div style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "#9ca3af" }}>
                     Origin
                   </div>
-                  <div style={{ fontSize:13.5, fontWeight:700, color:"#1A4D2E", lineHeight:1, marginTop:2 }}>
+                  <div style={{ fontSize: 13.5, fontWeight: 700, color: "#1A4D2E", lineHeight: 1, marginTop: 2 }}>
                     Pakistan
                   </div>
                 </div>
@@ -726,10 +726,10 @@ export default function ProductHighlight() {
               {/* ── Certification badges row ── */}
               <div
                 style={{
-                  display:"flex",
-                  flexWrap:"wrap",
-                  gap:8,
-                  marginTop:20,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 8,
+                  marginTop: 20,
                 }}
                 role="list"
                 aria-label="Product certifications"
@@ -739,23 +739,23 @@ export default function ProductHighlight() {
                     key={i}
                     role="listitem"
                     style={{
-                      display:"inline-flex",
-                      alignItems:"center",
-                      gap:6,
-                      padding:"6px 12px 6px 8px",
-                      borderRadius:100,
-                      background:"rgba(26,77,46,0.07)",
-                      border:"1px solid rgba(26,77,46,0.12)",
-                      opacity:0,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      padding: "6px 12px 6px 8px",
+                      borderRadius: 100,
+                      background: "rgba(26,77,46,0.07)",
+                      border: "1px solid rgba(26,77,46,0.12)",
+                      opacity: 0,
                       animation: visible
                         ? `ph-badge-in .45s ease ${0.7 + i * 0.08}s forwards`
                         : "none",
                     }}
                   >
-                    <span style={{ color:"#2D7A4F", display:"flex", alignItems:"center" }}>
+                    <span style={{ color: "#2D7A4F", display: "flex", alignItems: "center" }}>
                       {b.icon}
                     </span>
-                    <span style={{ fontSize:11, fontWeight:600, color:"#4B5563", letterSpacing:"0.02em" }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, color: "#4B5563", letterSpacing: "0.02em" }}>
                       {b.label}
                     </span>
                   </div>
@@ -764,38 +764,38 @@ export default function ProductHighlight() {
             </div>
 
             {/* ── RIGHT COLUMN — spec cards ── */}
-            <div style={{ display:"flex", flexDirection:"column", gap:0 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
 
               {/* Specs label */}
               <div
                 style={{
-                  display:"flex",
-                  alignItems:"center",
-                  justifyContent:"space-between",
-                  marginBottom:16,
-                  opacity:0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: 16,
+                  opacity: 0,
                   animation: visible ? "ph-rise .55s ease .45s forwards" : "none",
                 }}
               >
-                <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div
                     style={{
-                      width:6, height:6, borderRadius:"50%",
-                      background:"#C8973A",
-                      animation:"ph-dot-pulse 2.4s ease-in-out infinite",
+                      width: 6, height: 6, borderRadius: "50%",
+                      background: "#C8973A",
+                      animation: "ph-dot-pulse 2.4s ease-in-out infinite",
                     }}
                     aria-hidden="true"
                   />
-                  <span style={{ fontSize:10.5, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.16em", color:"#6B7280" }}>
+                  <span style={{ fontSize: 10.5, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#6B7280" }}>
                     Nutritional Profile
                   </span>
                 </div>
                 <span
                   style={{
-                    fontSize:10.5, fontWeight:700,
-                    color:"rgba(45,122,79,0.8)",
-                    letterSpacing:"0.1em",
-                    textTransform:"uppercase",
+                    fontSize: 10.5, fontWeight: 700,
+                    color: "rgba(45,122,79,0.8)",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
                   }}
                 >
                   Lab Verified ✓
@@ -805,21 +805,21 @@ export default function ProductHighlight() {
               {/* Spec grid */}
               <div
                 style={{
-                  display:"grid",
-                  gridTemplateColumns:"repeat(2, 1fr)",
-                  gap:12,
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gap: 12,
                 }}
                 role="list"
                 aria-label="Product nutritional specifications"
                 itemProp="additionalProperty"
               >
                 {(PRODUCT_SPECS ?? [
-                  { label:"Crude Protein",  value:"8–10",  unit:"%",  pct:82 },
-                  { label:"Dry Matter",     value:"28–35", unit:"%",  pct:65 },
-                  { label:"Moisture",       value:"65–70", unit:"%",  pct:68 },
-                  { label:"Energy (ME)",    value:"2.4",   unit:"Mcal",pct:75 },
-                  { label:"NDF Fibre",      value:"45–55", unit:"%",  pct:50 },
-                  { label:"Starch Content", value:"25–30", unit:"%",  pct:72 },
+                  { label: "Crude Protein", value: "8–10", unit: "%", pct: 82 },
+                  { label: "Dry Matter", value: "28–35", unit: "%", pct: 65 },
+                  { label: "Moisture", value: "65–70", unit: "%", pct: 68 },
+                  { label: "Energy (ME)", value: "2.4", unit: "Mcal", pct: 75 },
+                  { label: "NDF Fibre", value: "45–55", unit: "%", pct: 50 },
+                  { label: "Starch Content", value: "25–30", unit: "%", pct: 72 },
                 ]).map((spec: any, i: number) => (
                   <div key={spec.label} role="listitem">
                     <SpecCard spec={spec} index={i} visible={visible} />
@@ -831,10 +831,10 @@ export default function ProductHighlight() {
               <div
                 aria-hidden="true"
                 style={{
-                  height:1,
-                  background:"linear-gradient(90deg, rgba(26,77,46,0.12), transparent)",
-                  margin:"24px 0",
-                  opacity:0,
+                  height: 1,
+                  background: "linear-gradient(90deg, rgba(26,77,46,0.12), transparent)",
+                  margin: "24px 0",
+                  opacity: 0,
                   animation: visible ? "ph-rise .5s ease .9s forwards" : "none",
                 }}
               />
@@ -842,45 +842,45 @@ export default function ProductHighlight() {
               {/* Quality note */}
               <div
                 style={{
-                  padding:"14px 18px",
-                  borderRadius:14,
-                  background:"rgba(26,77,46,0.05)",
-                  border:"1px solid rgba(26,77,46,0.1)",
-                  display:"flex",
-                  gap:12,
-                  alignItems:"flex-start",
-                  opacity:0,
+                  padding: "14px 18px",
+                  borderRadius: 14,
+                  background: "rgba(26,77,46,0.05)",
+                  border: "1px solid rgba(26,77,46,0.1)",
+                  display: "flex",
+                  gap: 12,
+                  alignItems: "flex-start",
+                  opacity: 0,
                   animation: visible ? "ph-rise .55s ease .95s forwards" : "none",
                 }}
               >
-                <span style={{ fontSize:18, lineHeight:1, marginTop:1, flexShrink:0 }} aria-hidden="true">🔬</span>
-                <p style={{ fontSize:12.5, color:"#6B7280", lineHeight:1.65, margin:0, fontWeight:400 }}>
+                <span style={{ fontSize: 18, lineHeight: 1, marginTop: 1, flexShrink: 0 }} aria-hidden="true">🔬</span>
+                <p style={{ fontSize: 12.5, color: "#6B7280", lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
                   All nutritional values independently verified via{" "}
-                  <strong style={{ fontWeight:600, color:"#4B5563" }}>AOAC-certified laboratory analysis</strong>.
+                  <strong style={{ fontWeight: 600, color: "#4B5563" }}>AOAC-certified laboratory analysis</strong>.
                   Batch test certificates available on request.
                 </p>
               </div>
 
               {/* CTA */}
-              <div className="ph-cta" style={{ marginTop:24 }}>
+              <div className="ph-cta" style={{ marginTop: 24 }}>
                 <Link
                   href="/product"
                   className="ph-cta-btn"
                   aria-label="Download full corn silage product datasheet"
                   style={{
-                    display:"inline-flex",
-                    alignItems:"center",
-                    gap:10,
-                    padding:"15px 30px",
-                    borderRadius:14,
-                    background:"linear-gradient(135deg, #1A4D2E 0%, #0f2e1a 100%)",
-                    color:"white",
-                    fontSize:14,
-                    fontWeight:700,
-                    letterSpacing:"0.01em",
-                    textDecoration:"none",
-                    boxShadow:"0 6px 28px rgba(26,77,46,0.3), inset 0 1px 0 rgba(255,255,255,0.08)",
-                    transition:"transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 10,
+                    padding: "15px 30px",
+                    borderRadius: 14,
+                    background: "linear-gradient(135deg, #1A4D2E 0%, #0f2e1a 100%)",
+                    color: "white",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    letterSpacing: "0.01em",
+                    textDecoration: "none",
+                    boxShadow: "0 6px 28px rgba(26,77,46,0.3), inset 0 1px 0 rgba(255,255,255,0.08)",
+                    transition: "transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease",
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
