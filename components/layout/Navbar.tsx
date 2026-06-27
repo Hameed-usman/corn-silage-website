@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAV_LINKS, CONTACT } from "@/lib/constants";
+import { NAV_LINKS, CONTACT, SITE } from "@/lib/constants";
 
 export default function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false);
-  const [menuOpen,   setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const hamBtnRef = useRef<HTMLButtonElement>(null);
@@ -36,13 +37,13 @@ export default function Navbar() {
   /* ── Close drawer on outside click (backdrop) ── */
   useEffect(() => {
     if (!menuOpen) return;
-    
+
     const handler = (e: MouseEvent) => {
       // Don't close if clicking on drawer or toggle button
       if (drawerRef.current?.contains(e.target as Node) || hamBtnRef.current?.contains(e.target as Node)) return;
       closeMenu();
     };
-    
+
     // Use capture phase to intercept backdrop clicks reliably
     document.addEventListener("mousedown", handler, true);
     return () => document.removeEventListener("mousedown", handler, true);
@@ -56,8 +57,8 @@ export default function Navbar() {
 
   /* ── Escape key closes drawer ── */
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { 
-      if (e.key === "Escape" && menuOpen) closeMenu(); 
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && menuOpen) closeMenu();
     };
     if (menuOpen) {
       document.addEventListener("keydown", handler);
@@ -252,7 +253,7 @@ export default function Navbar() {
         {scrolled && (
           <div
             aria-hidden="true"
-            style={{ position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none" }}
+            style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}
           >
             <div className="grain-overlay" />
           </div>
@@ -267,11 +268,11 @@ export default function Navbar() {
           itemScope
           itemType="https://schema.org/SiteNavigationElement"
           style={{
-            maxWidth:"1280px", margin:"0 auto",
+            maxWidth: "1280px", margin: "0 auto",
             padding: scrolled ? "12px 2rem" : "20px 2rem",
-            display:"flex", alignItems:"center", justifyContent:"space-between",
-            position:"relative",
-            transition:"padding .45s cubic-bezier(.16,1,.3,1)",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            position: "relative",
+            transition: "padding .45s cubic-bezier(.16,1,.3,1)",
           }}
         >
           {/* ── LOGO / HOME LINK ── */}
@@ -280,45 +281,26 @@ export default function Navbar() {
             aria-label="GreenValley Agri Exports — Go to homepage"
             title="GreenValley Agri Exports"
             itemProp="url"
-            style={{ display:"flex", alignItems:"center", gap:12, textDecoration:"none" }}
+            style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}
             className="group"
           >
             <div
               aria-hidden="true"
               style={{
-                width:42, height:42, borderRadius:12,
-                background:"linear-gradient(135deg,#C8973A 0%,#e8b84b 100%)",
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:20, flexShrink:0,
-                boxShadow:"0 4px 16px rgba(200,151,58,.4),inset 0 1px 0 rgba(255,255,255,.22)",
-                transition:"transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0,
+                transition: "transform .4s cubic-bezier(.34,1.56,.64,1)",
               }}
-              className="group-hover:[transform:rotate(-8deg)_scale(1.08)] group-hover:[box-shadow:0_6px_24px_rgba(200,151,58,.62),inset_0_1px_0_rgba(255,255,255,.22)]"
+              className="group-hover:[transform:scale(1.05)]"
             >
-              🌿
-            </div>
-            <div style={{ display:"flex", flexDirection:"column", gap:2 }}>
-              <span
-                className="logo-text"
-                itemProp="name"
-                style={{
-                  fontFamily:"var(--font-display)",
-                  fontSize:20, fontWeight:700,
-                  lineHeight:1, letterSpacing:"-0.01em",
-                }}
-              >
-                GreenValley
-              </span>
-              <span
-                aria-hidden="true"
-                style={{
-                  fontSize:9, fontWeight:700,
-                  letterSpacing:"0.2em", textTransform:"uppercase",
-                  color:"rgba(200,151,58,.72)", lineHeight:1,
-                }}
-              >
-                Agri Exports
-              </span>
+              <Image
+                src={SITE.logo}
+                alt={SITE.name}
+                width={240}
+                height={96}
+                className="object-contain h-12 md:h-14 w-auto"
+                priority
+              />
             </div>
           </Link>
 
@@ -327,10 +309,10 @@ export default function Navbar() {
             {/* Nav links inside a pill container */}
             <div
               style={{
-                display:"flex", alignItems:"center", gap:2,
-                padding:"4px", borderRadius:100,
-                background:"rgba(255,255,255,.05)",
-                border:"1px solid rgba(255,255,255,.09)",
+                display: "flex", alignItems: "center", gap: 2,
+                padding: "4px", borderRadius: 100,
+                background: "rgba(255,255,255,.05)",
+                border: "1px solid rgba(255,255,255,.09)",
               }}
             >
               {NAV_LINKS.map((link) => (
@@ -345,14 +327,14 @@ export default function Navbar() {
                     color: activeLink === link.href
                       ? "rgba(255,255,255,1)"
                       : "rgba(255,255,255,.72)",
-                    fontSize:13, fontWeight:500,
-                    letterSpacing:".015em",
-                    padding:"8px 16px", borderRadius:100,
-                    textDecoration:"none",
+                    fontSize: 13, fontWeight: 500,
+                    letterSpacing: ".015em",
+                    padding: "8px 16px", borderRadius: 100,
+                    textDecoration: "none",
                     background: activeLink === link.href
                       ? "rgba(255,255,255,.1)" : "transparent",
-                    transition:"all .2s ease",
-                    display:"block", whiteSpace:"nowrap",
+                    transition: "all .2s ease",
+                    display: "block", whiteSpace: "nowrap",
                   }}
                 >
                   <span itemProp="name">{link.label}</span>
@@ -364,9 +346,9 @@ export default function Navbar() {
             <div
               aria-hidden="true"
               style={{
-                width:1, height:28,
-                background:"rgba(255,255,255,.1)",
-                margin:"0 14px", flexShrink:0,
+                width: 1, height: 28,
+                background: "rgba(255,255,255,.1)",
+                margin: "0 14px", flexShrink: 0,
               }}
             />
 
@@ -376,13 +358,13 @@ export default function Navbar() {
               className="cta-btn"
               aria-label="Request a quote from GreenValley Agri Exports"
               style={{
-                display:"inline-flex", alignItems:"center", gap:8,
-                padding:"10px 22px", borderRadius:100,
-                background:"linear-gradient(135deg,#C8973A 0%,#dda83e 100%)",
-                color:"#0f2e1a", fontSize:13, fontWeight:700,
-                letterSpacing:".01em", textDecoration:"none",
-                animation:"cta-pulse 3s ease-in-out infinite",
-                transition:"transform .25s ease",
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "10px 22px", borderRadius: 100,
+                background: "linear-gradient(135deg,#C8973A 0%,#dda83e 100%)",
+                color: "#0f2e1a", fontSize: 13, fontWeight: 700,
+                letterSpacing: ".01em", textDecoration: "none",
+                animation: "cta-pulse 3s ease-in-out infinite",
+                transition: "transform .25s ease",
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-1px) scale(1.03)";
@@ -423,8 +405,8 @@ export default function Navbar() {
           aria-hidden="true"
           onClick={() => setMenuOpen(false)}
           style={{
-            position:"fixed", inset:0, zIndex:39,
-            background:"rgba(0,0,0,.65)", backdropFilter:"blur(4px)",
+            position: "fixed", inset: 0, zIndex: 39,
+            background: "rgba(0,0,0,.65)", backdropFilter: "blur(4px)",
           }}
         />
       )}
@@ -444,34 +426,34 @@ export default function Navbar() {
           aria-label="Site navigation"
           className="drawer-panel"
           style={{
-            position:"fixed", top:0, right:0, bottom:0,
-            width:"min(340px,88vw)", zIndex:40,
-            display:"flex", flexDirection:"column",
-            background:"linear-gradient(160deg,#0d2918 0%,#1A4D2E 55%,#0d2918 100%)",
-            boxShadow:"-10px 0 60px rgba(0,0,0,.5),inset 1px 0 0 rgba(200,151,58,.13)",
-            overflowY:"auto", overflowX:"hidden",
+            position: "fixed", top: 0, right: 0, bottom: 0,
+            width: "min(340px,88vw)", zIndex: 40,
+            display: "flex", flexDirection: "column",
+            background: "linear-gradient(160deg,#0d2918 0%,#1A4D2E 55%,#0d2918 100%)",
+            boxShadow: "-10px 0 60px rgba(0,0,0,.5),inset 1px 0 0 rgba(200,151,58,.13)",
+            overflowY: "auto", overflowX: "hidden",
           }}
         >
           {/* Grain */}
           <div
             aria-hidden="true"
-            style={{ position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none" }}
+            style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}
           >
             <div className="grain-overlay" />
           </div>
 
           {/* Radial glow accents */}
           <div aria-hidden="true" style={{
-            position:"absolute", top:-70, right:-70,
-            width:200, height:200, borderRadius:"50%",
-            background:"radial-gradient(circle,rgba(200,151,58,.14) 0%,transparent 70%)",
-            pointerEvents:"none",
+            position: "absolute", top: -70, right: -70,
+            width: 200, height: 200, borderRadius: "50%",
+            background: "radial-gradient(circle,rgba(200,151,58,.14) 0%,transparent 70%)",
+            pointerEvents: "none",
           }} />
           <div aria-hidden="true" style={{
-            position:"absolute", bottom:100, left:-50,
-            width:160, height:160, borderRadius:"50%",
-            background:"radial-gradient(circle,rgba(45,122,79,.18) 0%,transparent 70%)",
-            pointerEvents:"none",
+            position: "absolute", bottom: 100, left: -50,
+            width: 160, height: 160, borderRadius: "50%",
+            background: "radial-gradient(circle,rgba(45,122,79,.18) 0%,transparent 70%)",
+            pointerEvents: "none",
           }} />
 
           {/* ── Drawer top bar ──
@@ -479,44 +461,21 @@ export default function Navbar() {
               This is the ONLY place logo and × appear in the drawer. */}
           <div
             style={{
-              display:"flex", alignItems:"center", justifyContent:"space-between",
-              padding:"20px 22px 18px",
-              borderBottom:"1px solid rgba(255,255,255,.07)",
-              position:"relative", flexShrink:0,
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "20px 22px 18px",
+              borderBottom: "1px solid rgba(255,255,255,.07)",
+              position: "relative", flexShrink: 0,
             }}
           >
             {/* Compact brand */}
-            <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-              <div
-                aria-hidden="true"
-                style={{
-                  width:34, height:34, borderRadius:9,
-                  background:"linear-gradient(135deg,#C8973A,#e8b84b)",
-                  display:"flex", alignItems:"center", justifyContent:"center",
-                  fontSize:16,
-                  boxShadow:"0 3px 12px rgba(200,151,58,.32)",
-                  flexShrink:0,
-                }}
-              >
-                🌿
-              </div>
-              <div>
-                <p style={{
-                  fontFamily:"var(--font-display)",
-                  fontSize:17, fontWeight:700, color:"white",
-                  lineHeight:1, margin:0,
-                }}>
-                  GreenValley
-                </p>
-                <p style={{
-                  fontSize:8.5, fontWeight:700,
-                  letterSpacing:"0.18em", textTransform:"uppercase",
-                  color:"rgba(200,151,58,.68)",
-                  lineHeight:1, marginTop:3,
-                }}>
-                  Agri Exports
-                </p>
-              </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Image
+                src={SITE.logo}
+                alt={SITE.name}
+                width={120}
+                height={48}
+                className="object-contain h-10 w-auto"
+              />
             </div>
 
             {/* Close button */}
@@ -543,17 +502,17 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               aria-label="Close navigation menu"
               style={{
-                width:36,
-                height:36,
-                borderRadius:10,
-                background:"rgba(255,255,255,.07)",
-                border:"1px solid rgba(255,255,255,.11)",
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                cursor:"pointer",
-                flexShrink:0,
-                transition:"background .2s ease",
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: "rgba(255,255,255,.07)",
+                border: "1px solid rgba(255,255,255,.11)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                flexShrink: 0,
+                transition: "background .2s ease",
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.14)";
@@ -576,15 +535,15 @@ export default function Navbar() {
           {/* ── Nav links ── */}
           <nav
             aria-label="Mobile site navigation"
-            style={{ padding:"20px 18px 0", flex:1, position:"relative" }}
+            style={{ padding: "20px 18px 0", flex: 1, position: "relative" }}
           >
             <p
               aria-hidden="true"
               style={{
-                fontSize:9.5, fontWeight:700,
-                letterSpacing:"0.18em", textTransform:"uppercase",
-                color:"rgba(200,151,58,.55)",
-                paddingLeft:10, marginBottom:8,
+                fontSize: 9.5, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                color: "rgba(200,151,58,.55)",
+                paddingLeft: 10, marginBottom: 8,
               }}
             >
               Navigation
@@ -598,13 +557,13 @@ export default function Navbar() {
                 className="mobile-nav-item"
                 aria-label={`Go to ${link.label}`}
                 style={{
-                  display:"flex", alignItems:"center", justifyContent:"space-between",
-                  padding:"13px 14px", borderRadius:12,
-                  textDecoration:"none", color:"rgba(255,255,255,.8)",
-                  fontSize:15, fontWeight:500,
-                  marginBottom:3, border:"1px solid transparent",
-                  transition:"all .2s ease",
-                  animationDelay:`${i * 0.055 + 0.08}s`,
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  padding: "13px 14px", borderRadius: 12,
+                  textDecoration: "none", color: "rgba(255,255,255,.8)",
+                  fontSize: 15, fontWeight: 500,
+                  marginBottom: 3, border: "1px solid transparent",
+                  transition: "all .2s ease",
+                  animationDelay: `${i * 0.055 + 0.08}s`,
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement;
@@ -621,7 +580,7 @@ export default function Navbar() {
               >
                 <span>{link.label}</span>
                 <ArrowUpRight size={13} aria-hidden="true"
-                  style={{ color:"rgba(200,151,58,.45)", flexShrink:0 }} />
+                  style={{ color: "rgba(200,151,58,.45)", flexShrink: 0 }} />
               </Link>
             ))}
           </nav>
@@ -629,9 +588,9 @@ export default function Navbar() {
           {/* ── Footer CTA + quick contact ── */}
           <div
             style={{
-              padding:"20px 18px 36px",
-              borderTop:"1px solid rgba(255,255,255,.07)",
-              position:"relative", flexShrink:0,
+              padding: "20px 18px 36px",
+              borderTop: "1px solid rgba(255,255,255,.07)",
+              position: "relative", flexShrink: 0,
             }}
           >
             <Link
@@ -640,13 +599,13 @@ export default function Navbar() {
               className="cta-btn"
               aria-label="Request a quote from GreenValley Agri Exports"
               style={{
-                display:"flex", alignItems:"center", justifyContent:"center", gap:8,
-                width:"100%", padding:"14px", borderRadius:14,
-                background:"linear-gradient(135deg,#C8973A 0%,#dda83e 100%)",
-                color:"#0f2e1a", fontSize:14, fontWeight:700,
-                letterSpacing:".01em", textDecoration:"none",
-                boxShadow:"0 4px 20px rgba(200,151,58,.38)",
-                marginBottom:18,
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                width: "100%", padding: "14px", borderRadius: 14,
+                background: "linear-gradient(135deg,#C8973A 0%,#dda83e 100%)",
+                color: "#0f2e1a", fontSize: 14, fontWeight: 700,
+                letterSpacing: ".01em", textDecoration: "none",
+                boxShadow: "0 4px 20px rgba(200,151,58,.38)",
+                marginBottom: 18,
               }}
             >
               Get a Quote
@@ -656,15 +615,15 @@ export default function Navbar() {
             <p
               aria-hidden="true"
               style={{
-                fontSize:9.5, fontWeight:700,
-                letterSpacing:"0.18em", textTransform:"uppercase",
-                color:"rgba(200,151,58,.55)", marginBottom:10,
+                fontSize: 9.5, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                color: "rgba(200,151,58,.55)", marginBottom: 10,
               }}
             >
               Quick Contact
             </p>
 
-            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
                 className="contact-pill"

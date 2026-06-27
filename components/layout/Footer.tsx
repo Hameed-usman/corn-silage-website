@@ -244,10 +244,10 @@ export default function Footer() {
                 © {year} <Link href="/" className="ft-bl">{SITE.name}</Link>. All rights reserved.
               </p>
               {[{ href: "/privacy", label: "Privacy Policy" }, { href: "/terms", label: "Terms" }].map((l) => (
-                <>
+                <span key={l.href} style={{ display: "contents" }}>
                   <span aria-hidden="true" style={{ color: "rgba(255,255,255,.15)", fontSize: 10 }}>·</span>
-                  <Link key={l.href} href={l.href} className="ft-bl" style={{ fontSize: 12 }}>{l.label}</Link>
-                </>
+                  <Link href={l.href} className="ft-bl" style={{ fontSize: 12 }}>{l.label}</Link>
+                </span>
               ))}
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }} aria-label="Trade terms">

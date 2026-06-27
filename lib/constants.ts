@@ -10,7 +10,7 @@ export const SITE = {
   description: "GreenValley Agri Exports is a premium corn silage supplier from Pakistan, delivering lab-tested quality and full traceability to global buyers.",
   url: "https://greenvalley-agri.pk",
   founded: 2016,
-  logo: "/images/logo.svg",
+  logo: "/logo.png",
   ogImage: "/images/og-image.jpg",
 } as const;
 
